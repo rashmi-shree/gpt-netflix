@@ -68,3 +68,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+--> do everything inside src
+--> keep app.js clean
+--> make components folder
+--> set up routing
+    --> import createBrowserRouter , RouterProvider from 'react-router-dom';
+--> login form
+--> sign up form
+--> form validation
+--> authentication (google firebase )
+--> create signup user account in firebase
+--> create signin user account in firebase
+--> set up redux store
+--> Hooks used:- 
+    --> useState
+    --> useRef (it allows me to reference a value)
