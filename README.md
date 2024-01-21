@@ -81,7 +81,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 --> authentication (google firebase )
 --> create signup user account in firebase
 --> create signin user account in firebase
---> set up redux store
+--> set up redux store with slice
+    --> install @reduxjs/toolkit, react-redux
 --> Hooks used:- 
     --> useState
     --> useRef (it allows me to reference a value)
+    --> useDispatch
+    --> useSelector
+    --> useNavigate
+    --> useEffect
