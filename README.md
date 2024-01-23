@@ -90,3 +90,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     --> useSelector
     --> useNavigate
     --> useEffect
+--> Bugfixes
+    --> sign up user display name and profile picture update
+    --> if the user is not logged in redirect/ browse to login page and vice versa
+--> never use string always put them in constants
+--> creating custom hooks
