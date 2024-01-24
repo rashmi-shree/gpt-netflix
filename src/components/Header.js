@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useRef} from 'react'
 import {useNavigate} from 'react-router-dom';
 import {auth} from "../utils/firebase";
 import { signOut } from "firebase/auth";
@@ -6,11 +6,24 @@ import {useSelector, useDispatch} from "react-redux";
 import {onAuthStateChanged } from "firebase/auth";
 import {addUser, removeUser} from "../utils/userSlice";
 import { NETFLIX_LOGO, USER_LOGO } from '../utils/constants';
+import {toggleGptSearch} from "../utils/gptSlice";
+import { SUPPORTED_LANGUAGES } from '../utils/constants';
+// import lang from '../utils/languageConstants';
+import {changeLanguage} from "../utils/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const langSelect = useRef(null);
   const user = useSelector((store)=> store.user)
+  const gptSearch = useSelector((store)=> store.gpt.gptSearch)
+  const languageHandleChange = () => {
+    // console.log(langSelect.current.value); 
+    dispatch(changeLanguage(langSelect.current.value))
+  }
+  const handleGptSearch = () =>{
+    dispatch(toggleGptSearch())
+  }
   const signOutEvent = () => {
     signOut(auth).then(() => {
       // navigate("/");
@@ -48,8 +61,25 @@ const Header = () => {
       {
         user && (
         <div 
-          className='flex'
+          className='flex p-2'
         >
+          { gptSearch && (<select
+            className='p-2 h-12 mt-4 rounded-lg bg-gray-900 text-white'
+            onChange={languageHandleChange}
+            ref = {langSelect}
+          >
+            {
+              SUPPORTED_LANGUAGES.map((lang)=>
+              <option key={lang.identifier} value={lang.identifier}>
+                {lang.name}
+              </option>
+              )
+            }
+          </select>)}
+          <button
+            className='bg-purple-800 m-4 p-2 rounded-lg text-white hover:bg-opacity-75'
+            onClick={handleGptSearch}
+          >{ gptSearch ? "Home" : "GPT Search"}</button>
         <p 
           className='text-white font-bold mt-7'
         >{user?.displayName}</p>

@@ -95,3 +95,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     --> if the user is not logged in redirect/ browse to login page and vice versa
 --> never use string always put them in constants
 --> creating custom hooks
+--> GPT search feature
+--> multi language
+--> responsive
+--> all secret information keep it in .env file
