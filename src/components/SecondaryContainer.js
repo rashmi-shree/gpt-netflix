@@ -10,7 +10,7 @@ const SecondaryContainer = () => {
         className='bg-black'
       >
       <div 
-        className='-mt-52 relative z-1 pl-2' 
+        className='mt:0 md:-mt-52 relative z-1 pl-2' 
       >
         <MovieList 
           title="Now Playing"
